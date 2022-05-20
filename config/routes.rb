@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'user_sessions/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root :to => 'users#index'
-  resources :users
+  resources :users do
+    resources :posts
+  end
+  resources :posts
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"
