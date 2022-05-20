@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :posts
   end
+  resources :posts
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"
